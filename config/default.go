@@ -39,4 +39,12 @@ QueueSize = 25
 RetryWaitInterval = "3s"
 InitialWaitInterval = "3s"
 TxLifeTimeMax = "30m"
+
+[Metrics]
+Host = "0.0.0.0"
+Port = 9091
+Enabled = false
+ProfilingHost = "0.0.0.0"
+ProfilingPort = 6060
+ProfilingEnabled = false
 `

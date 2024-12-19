@@ -164,3 +164,8 @@ func (m *Monitor) monitorL2TransactionsFromPoolDB() {
 		m.AddL2Transaction(l2Tx)
 	}
 }
+
+func (m *Monitor) Summary() {
+	log.Infof("Summary Monitor: Request retry len:%v，request chan ", m.requestRetryList.len(), len(m.requestChan))
+
+}

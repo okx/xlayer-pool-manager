@@ -118,6 +118,19 @@ func start(cliCtx *cli.Context) error {
 		go startProfilingHttpServer(c.Metrics)
 	}
 
+	go func() {
+		for {
+			select {
+			case <-cliCtx.Done():
+				log.Infof("Exiting loop...")
+				return
+			default:
+				time.Sleep(30 * time.Second)
+				monitor.Summary()
+			}
+		}
+	}()
+
 	waitSignal(cancelFuncs)
 
 	return nil

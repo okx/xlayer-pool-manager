@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/0xPolygonHermez/zkevm-pool-manager/log"
 	"github.com/0xPolygonHermez/zkevm-pool-manager/types"
 	"github.com/jackc/pgx/v4/pgxpool"
 )
@@ -63,6 +64,7 @@ func (p *PoolDB) GetL2TransactionsByStatus(ctx context.Context, status string) (
 
 		txs = append(txs, tx)
 	}
+	log.Infof("Selecting txs status %s, len:%v", status, len(txs))
 
 	return txs, nil
 }

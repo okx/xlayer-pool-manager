@@ -166,6 +166,6 @@ func (m *Monitor) monitorL2TransactionsFromPoolDB() {
 }
 
 func (m *Monitor) Summary() {
-	log.Infof("Summary monitor: request retry:%v，chan:%v ", m.requestRetryList.len(), len(m.requestChan))
+	log.Infof("Summary monitor: request retry:%v", m.requestRetryList.len())
 
 }

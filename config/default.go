@@ -17,7 +17,7 @@ EnableHttpLog = true
 BatchRequestsEnabled = false
 BatchRequestsLimit = 20
 
-[Pool]
+[DB]
 User = "pool_user"
 Password = "pool_password"
 Name = "pool_db"

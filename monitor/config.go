@@ -21,4 +21,7 @@ type Config struct {
 
 	// TxLifetimeMax is the time a tx can be monitored waiting for the receipt
 	TxLifeTimeMax types.Duration `mapstructure:"TxLifeTimeMax"`
+
+	// LoadDBInterval is the time the monitor worker will wait before to load txs from the pool database
+	LoadDBInterval types.Duration `mapstructure:"LoadDBInterval"`
 }

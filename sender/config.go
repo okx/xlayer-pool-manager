@@ -15,4 +15,7 @@ type Config struct {
 
 	// QueueSize is the size of the queue for L2 txs that need to be sent to the sequencer
 	QueueSize uint16 `mapstructure:"QueueSize"`
+
+	// LoadDBInterval is the time the monitor worker will wait before to load txs from the pool database
+	LoadDBInterval types.Duration `mapstructure:"LoadDBInterval"`
 }

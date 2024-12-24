@@ -147,7 +147,5 @@ func (s *Sender) sendL2TransactionsFromPoolDB() {
 				log.Infof("tx %s sent to sequencer", l2Tx.Tag())
 			}
 		}
-
-		time.Sleep(s.cfg.LoadDBInterval.Duration)
 	}
 }

@@ -32,7 +32,6 @@ SequencerURL = "http://localhost:8467"
 ResendTxsCheckInterval = "5s"
 Workers = 5
 QueueSize = 25
-LoadDBInterval = "3s"
 
 [Monitor]
 L2NodeURL = "http://localhost:8467"
@@ -41,7 +40,6 @@ QueueSize = 25
 RetryWaitInterval = "3s"
 InitialWaitInterval = "3s"
 TxLifeTimeMax = "30m"
-LoadDBInterval = "3s"
 
 [Metrics]
 Host = "0.0.0.0"

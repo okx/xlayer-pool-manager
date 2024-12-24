@@ -170,7 +170,6 @@ func (m *Monitor) monitorL2TransactionsFromPoolDB() {
 		for _, l2Tx := range l2Txs {
 			m.AddL2Transaction(l2Tx)
 		}
-		time.Sleep(m.cfg.LoadDBInterval.Duration)
 	}
 
 }

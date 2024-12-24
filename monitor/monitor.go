@@ -155,7 +155,7 @@ func (m *Monitor) checkMonitorRequestRetries() {
 }
 
 func (m *Monitor) monitorL2TransactionsFromPoolDB() {
-	for page := 1; ; page++ {
+	for page := 0; ; page++ {
 		l2Txs, err := m.poolDB.GetL2TransactionsToMonitor(context.Background(), page)
 		if err != nil {
 			log.Errorf("error when getting txs to monitor from the pool database, error: %v", err)

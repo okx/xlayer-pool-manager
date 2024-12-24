@@ -129,7 +129,7 @@ func (s *Sender) checkL2TransactionsToResend() {
 }
 
 func (s *Sender) sendL2TransactionsFromPoolDB() {
-	for page := 1; ; page++ {
+	for page := 0; ; page++ {
 		l2Txs, err := s.poolDB.GetL2TransactionsToSend(context.Background(), page)
 		if err != nil {
 			log.Errorf("error when getting txs to send from the pool database, error: %v", err)

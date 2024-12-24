@@ -45,7 +45,7 @@ func (p *PoolDB) AddL2Transaction(ctx context.Context, tx *types.L2Transaction) 
 }
 
 func (p *PoolDB) GetL2TransactionsByStatusPaginated(ctx context.Context, status string, page int) ([]*types.L2Transaction, error) {
-	offset := (page - 1) * p.queryLimit
+	offset := page * p.queryLimit
 	const queryTxsSQL = "SELECT id, hash, received_at, from_address, gas_price, nonce, status, ip, encoded, decoded " +
 		"FROM pool.transaction WHERE status = $1 LIMIT $2 OFFSET $3;"
 	rows, err := p.db.Query(ctx, queryTxsSQL, status, p.queryLimit, offset)
@@ -72,7 +72,7 @@ func (p *PoolDB) GetL2TransactionsByStatusPaginated(ctx context.Context, status 
 }
 
 func (p *PoolDB) GetL2TransactionsToResend(ctx context.Context) ([]*types.L2Transaction, error) {
-	return p.GetL2TransactionsByStatusPaginated(ctx, types.TxStatusResend, 1)
+	return p.GetL2TransactionsByStatusPaginated(ctx, types.TxStatusResend, 0)
 }
 
 func (p *PoolDB) GetL2TransactionsToMonitor(ctx context.Context, page int) ([]*types.L2Transaction, error) {

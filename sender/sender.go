@@ -101,8 +101,8 @@ func (s *Sender) workerProcessRequest(request *sendRequest, seqClient *ethclient
 }
 
 func (s *Sender) checkL2TransactionsToResend() {
-	for page := 1; ; page++ {
-		txs, err := s.poolDB.GetL2TransactionsToResend(context.Background(), page)
+	for {
+		txs, err := s.poolDB.GetL2TransactionsToResend(context.Background(), 1)
 		if err != nil && err != pgx.ErrNoRows {
 			log.Errorf("error loading txs to resend from pool, error: %v", err)
 			time.Sleep(s.cfg.ResendTxsCheckInterval.Duration)
@@ -123,7 +123,6 @@ func (s *Sender) checkL2TransactionsToResend() {
 		}
 
 		if len(txs) == 0 {
-			page = 1
 			time.Sleep(s.cfg.ResendTxsCheckInterval.Duration)
 		}
 	}

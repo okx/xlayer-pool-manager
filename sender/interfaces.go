@@ -8,7 +8,7 @@ import (
 
 type poolDBInterface interface {
 	UpdateL2TransactionStatus(ctx context.Context, id uint64, newStatus string, errorMsg string) error
-	GetL2TransactionsToResend(ctx context.Context, page int) ([]*types.L2Transaction, error)
+	GetL2TransactionsToResend(ctx context.Context) ([]*types.L2Transaction, error)
 	GetL2TransactionsToSend(ctx context.Context, page int) ([]*types.L2Transaction, error)
 }
 

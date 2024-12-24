@@ -71,8 +71,8 @@ func (p *PoolDB) GetL2TransactionsByStatusPaginated(ctx context.Context, status 
 	return txs, nil
 }
 
-func (p *PoolDB) GetL2TransactionsToResend(ctx context.Context, page int) ([]*types.L2Transaction, error) {
-	return p.GetL2TransactionsByStatusPaginated(ctx, types.TxStatusResend, page)
+func (p *PoolDB) GetL2TransactionsToResend(ctx context.Context) ([]*types.L2Transaction, error) {
+	return p.GetL2TransactionsByStatusPaginated(ctx, types.TxStatusResend, 1)
 }
 
 func (p *PoolDB) GetL2TransactionsToMonitor(ctx context.Context, page int) ([]*types.L2Transaction, error) {
